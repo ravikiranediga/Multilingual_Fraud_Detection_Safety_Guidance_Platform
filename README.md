@@ -399,9 +399,15 @@ Stated plainly, because they are real:
 
 ---
 
-## License
+##🛡️ License
 
-Released under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page]
 
 ---
 

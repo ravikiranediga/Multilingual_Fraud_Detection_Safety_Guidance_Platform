@@ -14,7 +14,6 @@ returned in the reader's own language and script.
 
 ## Table of Contents
 
-- [Screenshots](#screenshots)
 - [Why This Exists](#why-this-exists)
 - [Architecture](#architecture)
 - [Tech Stack](#tech-stack)
@@ -29,24 +28,6 @@ returned in the reader's own language and script.
 - [Limitations](#limitations)
 - [Future Work](#future-work)
 - [License](#license)
-
----
-
-## Screenshots
-
-> **Note to contributors:** the image files in `docs/screenshots/` are not yet committed.
-> To populate this section, run the app (see [Running the Project](#running-the-project)),
-> capture the four views below, and save them into `docs/screenshots/` with these exact
-> filenames. Then the Markdown links below will resolve automatically.
-
-| View | File | What to capture |
-|---|---|---|
-| Text analysis (English) | `docs/screenshots/analysis-english.png` | Analyze Text tab, an English scam message, English selected, all three result cards plus the AI Explanation panel |
-| Text analysis (Telugu) | `docs/screenshots/analysis-telugu.png` | Same view with Telugu selected, showing the 4-point Telugu explanation |
-| Text analysis (Hindi) | `docs/screenshots/analysis-hindi.png` | Same view with Hindi selected, showing the 4-point Hindi explanation |
-| Image analysis | `docs/screenshots/analysis-image.png` | Analyze Image tab, a scam screenshot uploaded, extracted text and result |
-| Analytics | `docs/screenshots/analytics.png` | Analytics tab with the metrics, category bar chart, and risk distribution |
-| History | `docs/screenshots/history.png` | History tab with the dataframe of past analyses |
 
 ---
 

@@ -1,0 +1,200 @@
+Courier Scam Knowledge Base
+
+Courier scams are a rapidly growing form of fraud in which scammers impersonate courier companies, logistics providers, customs departments, postal services, or delivery agencies. These fraudsters attempt to trick individuals into revealing personal information, making payments, clicking malicious links, or downloading harmful software.
+
+As online shopping and home delivery services become increasingly popular, courier scams have become more convincing and widespread. Scammers exploit people's expectations of receiving packages, deliveries, gifts, or important documents.
+
+What is a Courier Scam?
+
+A courier scam occurs when a fraudster pretends to be associated with a delivery service and contacts a victim regarding a package, shipment, parcel, customs clearance, address verification, or delivery issue. The scammer's goal is usually to steal money, personal information, banking credentials, or account access.
+
+Common Types of Courier Scams
+
+1. Parcel Delivery Fee Scam
+
+The scammer claims that a parcel cannot be delivered unless a small fee is paid. Victims are directed to a fake payment website or asked to transfer money through digital payment methods.
+
+Warning Signs:
+
+* Unexpected delivery charges
+* Unknown courier company
+* Urgent payment requests
+* Suspicious payment links
+
+2. Address Verification Scam
+
+The victim receives a message claiming that a parcel cannot be delivered due to an incorrect address. The scammer asks the victim to click a link and enter personal details.
+
+Warning Signs:
+
+* Requests for personal information
+* Suspicious websites
+* Poor grammar or spelling
+* Unknown sender
+
+3. Customs Clearance Scam
+
+Fraudsters claim that an international package is being held by customs and requires payment of taxes, duties, or processing fees.
+
+Warning Signs:
+
+* Unexpected international package
+* Large customs charges
+* Urgent payment deadlines
+* Threats of package confiscation
+
+4. Fake Delivery Attempt Scam
+
+Victims receive messages stating that a delivery attempt failed and action is required immediately.
+
+Warning Signs:
+
+* Delivery expected but no tracking number
+* Generic messages
+* Suspicious links
+* Requests to log in
+
+5. Gift Package Scam
+
+The scammer claims that a valuable gift, reward, or package is waiting for delivery but requires payment of handling charges.
+
+Warning Signs:
+
+* Unexpected gifts
+* Advance fee requests
+* Unknown sender
+* Unrealistic offers
+
+6. Courier Impersonation Call Scam
+
+Scammers call victims pretending to be courier executives. They may ask for identity verification details, payment information, OTPs, or banking details.
+
+Warning Signs:
+
+* Requests for OTPs
+* Requests for banking information
+* Threatening language
+* Pressure to act immediately
+
+7. Tracking Link Scam
+
+Victims receive SMS messages containing fake shipment tracking links. Clicking the link may lead to phishing websites or malware downloads.
+
+Warning Signs:
+
+* Shortened URLs
+* Unknown domains
+* Unexpected tracking notifications
+* Requests for login credentials
+
+Common Scam Keywords
+
+Courier scam messages frequently contain phrases such as:
+
+* Parcel pending
+* Delivery failed
+* Shipment delayed
+* Customs clearance
+* Delivery charge
+* Processing fee
+* Package on hold
+* Verify address
+* Urgent delivery
+* Final notice
+* Track parcel
+* Courier update
+* Delivery confirmation
+* Package verification
+
+Psychological Techniques Used by Scammers
+
+Urgency
+
+Scammers create pressure by claiming immediate action is required to avoid package cancellation or return.
+
+Fear
+
+Victims are told that important documents, expensive products, or legal notices may be lost if action is not taken.
+
+Curiosity
+
+Unexpected parcel notifications make victims curious enough to click links or provide information.
+
+Authority
+
+Scammers impersonate well-known courier companies, government agencies, customs departments, or logistics providers.
+
+Trust
+
+Fraudsters use company names, logos, tracking numbers, and professional language to appear legitimate.
+
+Real-World Example
+
+A victim receives an SMS stating:
+
+"Your parcel delivery has failed. Please verify your address immediately using the following link."
+
+The victim clicks the link and enters personal information and payment details. The website is controlled by scammers who steal the information and use it for fraud.
+
+Another common scenario involves scammers claiming that customs duties must be paid before package delivery. Victims pay the requested amount, but no package exists.
+
+Potential Consequences
+
+Courier scams may result in:
+
+* Financial loss
+* Identity theft
+* Unauthorized account access
+* Stolen banking credentials
+* Malware infections
+* Personal data exposure
+* Emotional distress
+
+Red Flags to Watch For
+
+* Unexpected parcel notifications
+* Unknown courier companies
+* Poor spelling and grammar
+* Suspicious links
+* Requests for payments before delivery
+* Requests for OTPs
+* Requests for banking information
+* Generic greetings
+* Threats of package cancellation
+
+Safety Guidelines
+
+To protect yourself from courier scams:
+
+* Verify deliveries through official courier websites.
+* Never share OTPs.
+* Never share banking credentials.
+* Avoid clicking suspicious links.
+* Confirm tracking numbers through official channels.
+* Contact courier companies directly if unsure.
+* Ignore unexpected parcel notifications.
+* Keep devices updated with security software.
+* Report suspicious messages immediately.
+
+Best Practices
+
+Always verify the sender before responding to delivery-related messages. Use official courier applications and websites for tracking shipments. Be cautious of urgent requests demanding payment or personal information. Remember that genuine courier companies do not ask for OTPs, banking passwords, or sensitive financial information through SMS or unsolicited phone calls.
+
+How Businesses Are Targeted
+
+Businesses can also become victims of courier scams. Fraudsters may target employees responsible for procurement, shipping, logistics, or administration. Fake invoices, shipment notifications, and delivery requests can be used to compromise company finances or systems.
+
+Prevention Checklist
+
+Before responding to any courier-related message:
+
+* Verify the sender.
+* Check the tracking number.
+* Confirm expected deliveries.
+* Inspect links carefully.
+* Contact the courier company directly.
+* Avoid making rushed decisions.
+
+Conclusion
+
+Courier scams continue to evolve as online shopping and delivery services grow. Scammers exploit trust, urgency, and curiosity to deceive victims into sharing information or making payments. Awareness and verification are the most effective defenses. Users should always confirm delivery information through official sources and remain cautious when dealing with unexpected parcel notifications, payment requests, or tracking links.

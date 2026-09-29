@@ -1,0 +1,161 @@
+UPI Scam Knowledge Base
+
+UPI (Unified Payments Interface) is one of the most widely used digital payment systems in India. It allows users to transfer money instantly using mobile applications such as Google Pay, PhonePe, Paytm, BHIM, Amazon Pay, and banking apps. While UPI has made digital payments easy and convenient, it has also become a major target for cybercriminals and fraudsters.
+
+A UPI scam is a type of fraud in which scammers trick victims into sharing sensitive information, approving fraudulent payment requests, scanning malicious QR codes, or transferring money unknowingly. These scams often exploit trust, urgency, greed, fear, or lack of awareness.
+
+Common Types of UPI Scams
+
+1. Fake Payment Request Scam
+
+In this scam, a fraudster sends a payment request to the victim and claims that accepting the request will credit money into their account. Many users mistakenly believe they are receiving money and approve the request. In reality, approving the request sends money from the victim's account to the scammer.
+
+Warning Signs:
+
+* Unexpected payment requests
+* Unknown sender
+* Requests claiming rewards or cashback
+* Pressure to accept immediately
+
+2. QR Code Scam
+
+Fraudsters send QR codes through messaging apps or social media and ask victims to scan them to receive money, rewards, refunds, or prizes. Scanning a QR code cannot receive money; instead, it often initiates a payment process.
+
+Warning Signs:
+
+* Claims of receiving money after scanning
+* Unknown QR codes
+* Urgent instructions
+* Requests from strangers
+
+3. Refund Scam
+
+Scammers pretend to be customer support representatives from e-commerce companies, banks, payment apps, or service providers. They promise refunds and ask users to approve UPI requests or share confidential information.
+
+Warning Signs:
+
+* Unsolicited calls about refunds
+* Requests to install apps
+* Requests to approve transactions
+* Pressure to act quickly
+
+4. Fake Customer Support Scam
+
+Fraudsters create fake customer support numbers and publish them online. Victims searching for support numbers may contact scammers who then request payment details, OTPs, or screen-sharing access.
+
+Warning Signs:
+
+* Numbers found on unofficial websites
+* Requests for OTPs
+* Requests to install remote access software
+* Demands for service fees
+
+5. Screen Sharing Scam
+
+Scammers ask users to install applications such as AnyDesk, TeamViewer, QuickSupport, or similar tools. Once remote access is granted, fraudsters can control the device and initiate transactions.
+
+Warning Signs:
+
+* Requests to install remote access software
+* Claims of technical support
+* Unsolicited assistance
+* Requests to share screens
+
+6. Reward and Cashback Scam
+
+Victims receive messages claiming they have won rewards, cashback, lottery prizes, or promotional offers. To claim the reward, they are asked to pay processing fees or approve payment requests.
+
+Warning Signs:
+
+* Unexpected rewards
+* Large prizes
+* Processing fee requests
+* Limited-time offers
+
+7. KYC Update Scam
+
+Fraudsters impersonate banks or payment providers and claim that KYC verification is pending. Victims are instructed to click links, provide information, or approve transactions.
+
+Warning Signs:
+
+* Account suspension threats
+* Urgent KYC requests
+* Suspicious links
+* Unknown callers
+
+Common Scam Keywords
+
+Fraudulent messages often contain words and phrases such as:
+
+* UPI verification
+* Update KYC
+* Payment failed
+* Refund pending
+* Cashback offer
+* Reward claim
+* Prize money
+* Urgent action required
+* Account blocked
+* Verify account
+* Limited-time offer
+* Customer support
+* Processing fee
+* Security update
+
+Psychological Techniques Used by Scammers
+
+Scammers rely heavily on social engineering techniques. These include:
+
+Urgency:
+Creating panic and forcing immediate action.
+
+Fear:
+Threatening account suspension, legal action, or service termination.
+
+Greed:
+Offering prizes, rewards, or cashback.
+
+Authority:
+Pretending to be bank officials, government employees, or support executives.
+
+Trust:
+Using official-looking logos, names, and language.
+
+Real-World Example
+
+A victim receives a call from someone claiming to be from a payment company. The caller says a refund of ₹5,000 is pending. The victim is asked to approve a UPI request to receive the refund. After approval, ₹5,000 is debited from the victim's account instead of being credited.
+
+Potential Consequences
+
+UPI scams can result in:
+
+* Financial loss
+* Unauthorized transactions
+* Account compromise
+* Identity theft
+* Loss of personal information
+* Emotional stress
+* Reputation damage
+
+Safety Guidelines
+
+To stay safe from UPI scams:
+
+* Never share OTPs.
+* Never share UPI PINs.
+* Never approve unknown payment requests.
+* Verify the identity of callers.
+* Use official customer support channels.
+* Avoid clicking suspicious links.
+* Avoid scanning unknown QR codes.
+* Enable transaction alerts.
+* Monitor account activity regularly.
+* Report suspicious activity immediately.
+
+Best Practices
+
+Always verify transactions before approval. Read every payment request carefully. Remember that receiving money does not require entering a UPI PIN. If a transaction asks for a PIN, money is leaving your account. Keep payment applications updated and use strong device security measures such as screen locks and biometric authentication.
+
+Conclusion
+
+UPI scams continue to evolve as digital payments become more common. Awareness, caution, and verification are the most effective defenses against fraud. Users should remain alert, avoid sharing confidential information, verify all payment requests, and report suspicious activity promptly. Understanding common scam techniques can significantly reduce the risk of financial loss and help create a safer digital payment environment.

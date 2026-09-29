@@ -1,0 +1,31 @@
+# Secrets - never commit
+.env
+
+# Virtual environments
+.venv/
+venv/
+env/
+shield/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Generated vector index (rebuild with scripts/build_vector_db.py)
+data/vector_store/
+
+# Database
+*.db
+*.sqlite3
+
+# Uploaded images
+uploads/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

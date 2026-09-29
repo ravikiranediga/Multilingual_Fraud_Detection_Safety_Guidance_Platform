@@ -1,0 +1,200 @@
+OTP Scam Knowledge Base
+
+OTP (One-Time Password) scams are among the most common and dangerous forms of digital fraud. These scams target users by tricking them into revealing their OTPs, allowing fraudsters to gain unauthorized access to bank accounts, payment applications, email accounts, social media accounts, and other online services.
+
+An OTP is a temporary security code sent to a registered mobile number or email address to verify a user's identity. OTPs are designed to add an extra layer of security and should never be shared with anyone. However, scammers use social engineering techniques to convince victims to disclose these codes.
+
+What is an OTP Scam?
+
+An OTP scam occurs when a fraudster tricks a victim into sharing a one-time password. Once the scammer obtains the OTP, they can complete transactions, reset passwords, access accounts, or perform unauthorized activities.
+
+Fraudsters often impersonate trusted organizations such as banks, payment providers, courier companies, government agencies, telecom operators, e-commerce companies, or customer support teams.
+
+Common Types of OTP Scams
+
+1. Banking OTP Scam
+
+A scammer contacts the victim pretending to be a bank representative. The victim is informed that their account requires verification, KYC updates, security checks, or immediate action. The scammer requests the OTP sent by the bank.
+
+Warning Signs:
+
+* Calls claiming account suspension
+* Requests for OTP verification
+* Threats of account blocking
+* Urgent action requests
+
+2. UPI OTP Scam
+
+Fraudsters impersonate payment service providers and claim that money is being transferred, refunded, or credited. Victims are asked to share OTPs to complete the process.
+
+Warning Signs:
+
+* Refund offers
+* Cashback claims
+* Reward notifications
+* Payment verification requests
+
+3. SIM Swap Scam
+
+Scammers collect personal information and convince telecom providers to issue a duplicate SIM card. Once the new SIM is activated, OTPs are redirected to the scammer.
+
+Warning Signs:
+
+* Sudden network loss
+* SIM deactivation messages
+* Unauthorized account activity
+
+4. E-Commerce OTP Scam
+
+Victims receive calls regarding orders, refunds, cancellations, or reward programs. The fraudster requests OTPs to process transactions.
+
+Warning Signs:
+
+* Unexpected refund calls
+* Fake customer support
+* Requests for verification codes
+
+5. Job Offer OTP Scam
+
+Fraudsters promise employment opportunities and request OTPs during fake registration or verification processes.
+
+Warning Signs:
+
+* Unrealistic job offers
+* Registration requirements
+* Verification code requests
+
+6. Social Media OTP Scam
+
+Scammers attempt to gain access to social media accounts by requesting OTPs under various pretexts.
+
+Warning Signs:
+
+* Requests from unknown users
+* Account verification claims
+* Login confirmation messages
+
+Common Scam Keywords
+
+OTP scams often contain phrases such as:
+
+* Share OTP
+* Verify account
+* Account blocked
+* KYC update
+* Security verification
+* Login verification
+* Refund processing
+* Cashback reward
+* Payment confirmation
+* Urgent action required
+* Verify identity
+* Authentication code
+* Verification code
+* Security alert
+
+Psychological Techniques Used by Scammers
+
+Urgency
+
+Scammers create panic by claiming immediate action is required.
+
+Fear
+
+Victims are threatened with account suspension, financial loss, or service termination.
+
+Authority
+
+Fraudsters pretend to be bank officials, support executives, or government representatives.
+
+Trust
+
+Scammers use official-sounding language and company names.
+
+Greed
+
+Rewards, cashback offers, prizes, and bonuses are used to attract victims.
+
+Confusion
+
+Technical terms and complicated explanations are used to overwhelm victims.
+
+Real-World Example
+
+A victim receives a call from someone claiming to be from a bank. The caller states that the victim's account will be blocked unless KYC verification is completed immediately. During the conversation, an OTP arrives on the victim's phone. The scammer requests the OTP for verification purposes. After sharing the OTP, unauthorized transactions occur from the victim's account.
+
+Another common example involves fraudsters offering cashback rewards. The victim is informed that they have won a reward and must provide an OTP to receive the payment. The OTP is then used to authorize fraudulent transactions.
+
+Potential Consequences
+
+Sharing an OTP can result in:
+
+* Financial loss
+* Unauthorized banking transactions
+* UPI fraud
+* Account takeover
+* Identity theft
+* Email compromise
+* Social media account hijacking
+* Data theft
+* Privacy violations
+
+Important Facts About OTPs
+
+* OTPs are confidential.
+* OTPs are intended only for the account owner.
+* Banks never ask customers to share OTPs.
+* Genuine companies do not request OTPs through unsolicited calls.
+* Customer support representatives do not need OTPs.
+* Sharing an OTP is equivalent to authorizing a transaction.
+
+Red Flags
+
+Be cautious if someone:
+
+* Requests an OTP.
+* Claims urgency.
+* Threatens account suspension.
+* Offers rewards.
+* Promises refunds.
+* Requests confidential information.
+* Asks for banking details.
+* Pressures you to act quickly.
+
+Safety Guidelines
+
+To protect yourself from OTP scams:
+
+* Never share OTPs.
+* Read SMS messages carefully.
+* Verify caller identity independently.
+* Contact organizations through official channels.
+* Enable account security features.
+* Monitor banking transactions regularly.
+* Report suspicious activity immediately.
+* Ignore unsolicited requests for OTPs.
+
+Best Practices
+
+Always treat OTPs as highly confidential information. Before entering or sharing any code, verify the purpose of the request. If someone asks for an OTP over the phone, through messaging applications, email, or social media, assume it is fraudulent unless verified through official sources.
+
+Organizations should educate employees about OTP security and encourage reporting of suspicious requests. Awareness remains one of the strongest defenses against social engineering attacks.
+
+How Businesses Are Targeted
+
+Businesses can also become victims of OTP fraud. Employees with access to financial systems, administrative accounts, or sensitive information may be targeted. Fraudsters often impersonate vendors, customers, or internal staff members to obtain verification codes.
+
+Prevention Checklist
+
+Before responding to any OTP-related request:
+
+* Verify the sender.
+* Verify the purpose.
+* Confirm through official channels.
+* Do not act under pressure.
+* Never disclose OTPs.
+* Report suspicious messages.
+
+Conclusion
+
+OTP scams continue to be one of the most successful forms of cyber fraud because they rely on human psychology rather than technical vulnerabilities. Fraudsters exploit trust, urgency, fear, and confusion to obtain sensitive information. Understanding how OTP scams operate and following basic security practices can significantly reduce the risk of becoming a victim. Remember: an OTP is private, temporary, and meant only for the account owner. Never share it with anyone under any circumstances.

@@ -22,6 +22,7 @@ returned in the reader's own language and script.
 - [Project Structure](#project-structure)
 - [Installation](#installation)
 - [Running the Project](#running-the-project)
+- [Deployment](#deployment)
 - [API Reference](#api-reference)
 - [Configuration](#configuration)
 - [Troubleshooting](#troubleshooting)
@@ -202,8 +203,26 @@ Set the preferred model with `GEMINI_MODEL` in `.env` — it is prepended to the
 │   └── vector_store/               # Generated: index + chunks
 ├── tests/
 ├── docs/screenshots/
-├── requirements.txt
+├── .streamlit/config.toml          # Streamlit Cloud config
+├── render.yaml                     # Render blueprint for the API
+├── runtime.txt                     # Pinned Python for Render
+├── requirements.txt                # Frontend deps only
+├── requirements-backend.txt        # Full backend deps
+├── README.md
 └── .env                            # Local only — never commit
+```
+
+### Dependency split
+
+`requirements.txt` deliberately contains only `streamlit`, `requests`, and `pandas`.
+Streamlit Community Cloud installs this file, and the full ML stack (PyTorch, FAISS,
+EasyOCR) is roughly 2 GB and will time out that installer.
+
+The full dependency set lives in `requirements-backend.txt`, which Render installs. For
+local development of the whole project, install both:
+
+```bash
+pip install -r requirements.txt -r requirements-backend.txt
 ```
 
 ---
@@ -220,7 +239,7 @@ python -m venv .venv
 .venv\Scripts\activate          # Windows
 # source .venv/bin/activate     # macOS / Linux
 
-pip install -r requirements.txt
+pip install -r requirements.txt -r requirements-backend.txt
 ```
 
 Create `.env` in the project root:
@@ -267,6 +286,76 @@ Open <http://localhost:8501>.
 | Analyze Image | Upload a scam screenshot, extract text via OCR, analyse it in the chosen language |
 | History | View all past analyses from SQLite |
 | Analytics | Aggregated metrics, category distribution, risk distribution |
+
+---
+
+## Deployment
+
+The app is two services, because Streamlit Community Cloud runs **one** process per
+deployment while the heavy ML stack needs a long-lived process of its own.
+
+| Service | Platform | Runs |
+|---|---|---|
+| `scamshield-api` | Render | FastAPI, EasyOCR, FAISS, Gemini calls |
+| `scamshield-web` | Streamlit Community Cloud | Streamlit UI only |
+
+The browser talks to Streamlit, Streamlit talks to Render. This is why CORS is configured
+in `backend/main.py`.
+
+### 1. Deploy the backend to Render
+
+1. Push this repository to GitHub first.
+2. Go to <https://render.com> → **New** → **Blueprint**.
+3. Connect the repository. Render detects `render.yaml` and reads the config.
+4. Render prompts for the two `sync: false` values:
+   - `GEMINI_API_KEY` — your Gemini key
+   - `CORS_ORIGINS` — your Streamlit URL, e.g. `https://scamshield-web.streamlit.app`
+     (you can also leave `*` during setup and tighten it later)
+5. Click **Apply**.
+
+The build command installs the backend dependencies and rebuilds the FAISS index:
+
+```
+pip install -r requirements-backend.txt && python scripts/build_vector_db.py
+```
+
+When the deploy finishes you get a URL like `https://scamshield-api.onrender.com`.
+Verify it with `https://scamshield-api.onrender.com/health` — it should return
+`{"status":"running"}`.
+
+> **Cold starts.** Render's free tier sleeps after 15 minutes idle, and a wake-up loads
+> EasyOCR and the sentence-transformer model, which takes 2–5 minutes. The frontend shows
+> a clear "API unreachable" message during this window rather than hanging. Render's free
+> plan also caps memory at 512 MB, which is tight for PyTorch — if the service crashes on
+> boot, upgrade to the Starter plan ($7/month) or see the OCR note in Limitations.
+
+### 2. Deploy the frontend to Streamlit Community Cloud
+
+1. Go to <https://share.streamlit.io>.
+2. **New app** → connect your GitHub repository.
+3. Set the deployment settings:
+
+   | Field | Value |
+   |---|---|
+   | Main file path | `frontend/app.py` |
+   | Python version | 3.11 |
+   | Deploy | `scamshield-web` |
+
+4. Open **Advanced settings** → **Secrets** and add:
+
+   ```
+   API_URL = "https://scamshield-api.onrender.com"
+   ```
+
+5. Click **Deploy**.
+
+Your app appears at `https://scamshield-web.streamlit.app`.
+
+### 3. Tighten CORS
+
+Once the frontend URL is live, set `CORS_ORIGINS` on Render to that exact URL instead of
+`*`, so only your own frontend can call the API. Leaving it as `*` also means anyone who
+finds the API URL can call it and generate API cost against your key.
 
 ---
 
@@ -320,14 +409,27 @@ Returns `{ "extracted_text": "...", "analysis": { ... } }`.
 
 ## Configuration
 
-| Variable | Required | Default | Purpose |
-|---|---|---|---|
-| `GEMINI_API_KEY` | Yes | — | Google Gemini API key |
-| `GEMINI_MODEL` | No | `gemini-3.5-flash` | Preferred model, prepended to the failover chain |
+| Variable | Where | Required | Default | Purpose |
+|---|---|---|---|---|
+| `GEMINI_API_KEY` | both | Yes | — | Google Gemini API key |
+| `GEMINI_MODEL` | backend | No | `gemini-3.5-flash` | Preferred model, prepended to the failover chain |
+| `API_URL` | frontend | No | `http://127.0.0.1:8000` | Backend base URL. Required for deployment |
+| `CORS_ORIGINS` | backend | No | `*` | Comma-separated allowed origins |
 
 ---
 
 ## Troubleshooting
+
+**Streamlit shows "API unreachable".**
+
+Expected during a Render cold start (2–5 minutes). If it persists, open
+`/health` on your Render URL directly in a browser. If that fails, check the Render logs.
+
+**"Failed to deploy: could not install requirements".**
+
+`requirements.txt` must stay minimal (streamlit, requests, pandas). The heavy backend
+dependencies belong in `requirements-backend.txt`. If torch or faiss appear in
+`requirements.txt`, Streamlit Cloud will try to install ~2 GB and time out.
 
 **All output suddenly looks generic or repetitive.**
 
@@ -371,13 +473,17 @@ Stated plainly, because they are real:
   False negatives on novel scam phrasing are expected.
 - **OCR handles English and Hindi only.** EasyOCR is configured for `['en', 'hi']`, so
   Telugu text in a screenshot will not be extracted. Telugu *output* is unaffected.
+  EasyOCR is also the heaviest dependency on the backend and the most likely cause of
+  memory pressure on a small cloud instance.
 - **Risk scoring is additive and unweighted.** A message matching both OTP and government
   keywords is not scored more dangerously than one matching only OTP, unless a further
   signal fires.
 - **`ScamAnalysis.message` is a `String` column with no length limit.** SQLite permits
   this, but a different database would require a `Text` column.
-- **No authentication.** Every endpoint is open. Do not deploy publicly without adding
-  access control, or you risk both abuse and unbounded API cost.
+- **No authentication.** Every endpoint is open. On a public deployment this means anyone
+  can call `/analyze-text` and generate API cost against your key, and can read your entire
+  analysis history. Restrict at minimum with a shared token in `CORS_ORIGINS` plus a
+  reverse proxy, or keep the API private.
 - **No prompt-injection defence.** A scam message containing instruction-like text is
   passed into the Gemini prompt. The output is constrained to a fixed four-line format and
   is not executed anywhere, which limits impact, but the message content is not

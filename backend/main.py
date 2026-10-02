@@ -1,4 +1,5 @@
 from fastapi import FastAPI, UploadFile, File
+from fastapi.middleware.cors import CORSMiddleware
 import os
 
 from backend.schemas.request import AnalyzeRequest
@@ -19,6 +20,23 @@ from backend.database.models import ScamAnalysis
 
 
 app = FastAPI()
+
+# The Streamlit frontend is hosted separately (Streamlit Community Cloud),
+# so the browser calls this API cross-origin. CORS is required.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        origin.strip()
+        for origin in os.getenv(
+            "CORS_ORIGINS",
+            "*"
+        ).split(",")
+        if origin.strip()
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 Base.metadata.create_all(
     bind=engine

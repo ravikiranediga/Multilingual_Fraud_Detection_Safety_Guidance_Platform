@@ -1,8 +1,13 @@
 import streamlit as st
 import requests
 import pandas as pd
+import os
 
-API_URL = "http://127.0.0.1:8000"
+# Point at the deployed Render API in production, localhost in development
+API_URL = os.getenv(
+    "API_URL",
+    "http://127.0.0.1:8000"
+).rstrip("/")
 
 st.set_page_config(
     page_title="ScamShield AI",
@@ -50,6 +55,31 @@ st.markdown("""
 st.title("🛡️ ScamShield AI")
 st.subheader("Multilingual Fraud Detection & Safety Guidance Platform")
 
+with st.sidebar:
+    st.header("System Status")
+
+    try:
+        health = requests.get(
+            f"{API_URL}/health",
+            timeout=10
+        )
+
+        if health.status_code == 200:
+            st.success("API connected")
+            st.caption(API_URL)
+        else:
+            st.error(
+                f"API returned {health.status_code}"
+            )
+
+    except requests.exceptions.RequestException:
+        st.error("API unreachable")
+        st.warning(
+            "The backend is not responding. "
+            "On Render free tier the service sleeps after "
+            "15 minutes idle and takes a few minutes to wake."
+        )
+
 tab1, tab2, tab3, tab4 = st.tabs(
     ["Analyze Text", "Analyze Image", "History", "Analytics"]
 )
@@ -68,15 +98,25 @@ with tab1:
 
     if st.button("Analyze Scam"):
 
+        if not message.strip():
+            st.warning("Enter a message first.")
+            st.stop()
+
         payload = {
             "message": message,
             "response_language": response_language
         }
 
-        response = requests.post(
-            f"{API_URL}/analyze-text",
-            json=payload
-        )
+        with st.spinner("Analyzing..."):
+            try:
+                response = requests.post(
+                    f"{API_URL}/analyze-text",
+                    json=payload,
+                    timeout=180
+                )
+            except requests.exceptions.RequestException:
+                st.error("Could not reach the API.")
+                st.stop()
 
         if response.status_code == 200:
 
@@ -155,13 +195,19 @@ with tab2:
                 )
             }
 
-            response = requests.post(
-                f"{API_URL}/analyze-image",
-                files=files,
-                params={
-                    "response_language": image_language
-                }
-            )
+            with st.spinner("Extracting text and analyzing..."):
+                try:
+                    response = requests.post(
+                        f"{API_URL}/analyze-image",
+                        files=files,
+                        params={
+                            "response_language": image_language
+                        },
+                        timeout=180
+                    )
+                except requests.exceptions.RequestException:
+                    st.error("Could not reach the API.")
+                    st.stop()
 
             if response.status_code == 200:
 

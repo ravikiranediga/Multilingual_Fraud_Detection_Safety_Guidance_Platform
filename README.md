@@ -451,3 +451,14 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 - `sentence-transformers` and the `all-MiniLM-L6-v2` model
 - FAISS for vector similarity search
 - EasyOCR for screenshot text extraction
+
+## 👨‍💻 Author
+
+Ravi Kiran Ediga
+
+B.Tech Computer Science (AI)
+
+AI Engineer | Python Developer | Generative AI Enthusiast
+
+GitHub:
+https://github.com/ravikiranediga

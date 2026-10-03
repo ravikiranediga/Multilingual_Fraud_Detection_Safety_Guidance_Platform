@@ -13,14 +13,22 @@ def analyze_message(message: str):
     # --------------------------
 
     banking_keywords = [
-        # English
-        "bank",
-        "account",
-        "kyc",
-        "sbi",
-        "hdfc",
-        "icici",
-        "axis",
+    "bank",
+    "account",
+    "kyc",
+    "verify",
+    "verification",
+    "customer",
+    "login",
+    "secure",
+    "sbi",
+    "hdfc",
+    "icici",
+    "axis",
+    "debit card",
+    "credit card",
+    "net banking",
+
 
         # Hindi
         "बैंक",
@@ -45,9 +53,12 @@ def analyze_message(message: str):
     # --------------------------
 
     otp_keywords = [
-        # English
-        "otp",
-        "one time password",
+    "otp",
+    "one time password",
+    "authentication code",
+    "verification code",
+    "security code",
+    "confirm otp",
 
         # Hindi
         "ओटीपी",
@@ -72,6 +83,7 @@ def analyze_message(message: str):
         "gpay",
         "phonepe",
         "paytm",
+        "navi"
 
         # Hindi
         "यूपीआई",
@@ -182,13 +194,17 @@ def analyze_message(message: str):
     # --------------------------
 
     urgency_words = [
+    "urgent",
+    "immediately",
+    "blocked",
+    "warning",
+    "expire",
+    "expired",
+    "suspended",
+    "limited time",
+    "act now",
+    "verify now",
 
-        # English
-        "urgent",
-        "immediately",
-        "blocked",
-        "last warning",
-        "now",
 
         # Hindi
         "तुरंत",

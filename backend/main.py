@@ -6,7 +6,7 @@ from backend.schemas.request import AnalyzeRequest
 from backend.schemas.response import AnalyzeResponse
 
 from backend.services.scam_analyzer import analyze_message
-#from backend.services.ocr_service import extract_text_from_image
+from backend.services.ocr_service import extract_text_from_image
 from backend.services.language_service import detect_language
 from backend.services.safety_advice import get_safety_advice
 from backend.services.gemini_service import generate_explanation
@@ -200,7 +200,7 @@ def analyze_text(data: AnalyzeRequest):
     return result
 
 
-'''@app.post(
+@app.post(
     "/analyze-image"
 )
 async def analyze_image(
@@ -266,4 +266,4 @@ async def analyze_image(
     return {
         "extracted_text": extracted_text,
         "analysis": result
-    }'''
+    }

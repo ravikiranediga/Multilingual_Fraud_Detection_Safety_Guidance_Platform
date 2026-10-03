@@ -52,7 +52,7 @@ returned in the reader's own language and script.
 
 
 ![Image Analysis](screenshots/image-analysis2.png)
-![Image Analysis](screenshots/image-analysis1.png)
+
 
 ---
 

@@ -104,72 +104,6 @@ but the safety guidance comes back in the reader's own language.
 
 ---
 
-## How Detection Works
-
-`backend/services/scam_analyzer.py` runs a transparent keyword rule engine. It is
-deliberately explainable — every risk point can be traced to a specific matched keyword.
-
-| Signal | Score | Category set |
-|---|---|---|
-| Banking keyword | +20 | Banking Scam |
-| OTP request | +40 | OTP Scam |
-| UPI / wallet keyword | +25 | UPI Scam |
-| Courier / parcel keyword | +25 | Courier Scam |
-| Job offer keyword | +25 | Job Scam |
-| Government keyword | +25 | Government Scam |
-| Urgency language | +10 | — |
-| Suspicious TLD (`.xyz`, `.top`, `.click`) | +30 | — |
-
-Risk bands: **High** ≥ 70 · **Medium** ≥ 40 · **Low** < 40
-
-Keyword lists include English, Hindi (Devanagari), and Telugu script terms, so detection
-works regardless of the input language.
-
----
-
-## How Multilingual Output Works
-
-`backend/services/gemini_service.py`. This is the part of the system that required the most
-care, and it is worth documenting because three separate problems had to be solved.
-
-**1. Language-specific prompts.** The prompt contains only the *selected* language's four
-labels, never all three at once. Listing every language in one prompt causes the model to
-frequently copy the English labels regardless of the instruction.
-
-**2. Thinking disabled.** Gemini reasoning models spend `thinking` tokens before the answer.
-With a small output budget this consumed the budget first and truncated Telugu and Hindi
-mid-sentence — responses cut off after point 2 of 4. Setting `thinking_budget=0` fixed it.
-Flash-lite models reject `thinking_config` outright with a `400`, so those models build
-their config without it.
-
-**3. Output validation.** Every response is verified before it reaches the user:
-
-- all four numbered points present
-- all four language-specific labels present
-- script-ratio check — at least 60% of letters must be Telugu (`U+0C00–0C7F`) or
-  Devanagari (`U+0900–0C097F`) codepoints
-- leaked-English check — no more than 2 unapproved Latin words, with a brand-term
-  allowlist (`OTP`, `KYC`, `UPI`, `Aadhaar`, `ATM`, `PIN`, `SMS`, `ID`)
-
-A response that fails validation is retried with a corrective prompt rather than shown to
-the user.
-
-**4. Model failover.** A chain of models is tried in order until one succeeds:
-
-```
-gemini-3.5-flash → gemini-3-flash-preview → gemini-2.5-flash
-  → gemini-3.5-flash-lite → gemini-3.1-flash-lite → gemini-flash-lite-latest
-```
-
-Error handling is differentiated rather than uniform: `429` and `404` skip to the next
-model, `503` backs off and retries the *same* model, and `400` retries once without
-`thinking_config`. If every model fails, a localized offline template is returned so the
-user always receives guidance in their language.
-
-Set the preferred model with `GEMINI_MODEL` in `.env` — it is prepended to the chain.
-
----
-
 ## Project Structure
 
 ```
@@ -212,20 +146,6 @@ Set the preferred model with `GEMINI_MODEL` in `.env` — it is prepended to the
 └── .env                            # Local only — never commit
 ```
 
-### Dependency split
-
-`requirements.txt` deliberately contains only `streamlit`, `requests`, and `pandas`.
-Streamlit Community Cloud installs this file, and the full ML stack (PyTorch, FAISS,
-EasyOCR) is roughly 2 GB and will time out that installer.
-
-The full dependency set lives in `requirements-backend.txt`, which Render installs. For
-local development of the whole project, install both:
-
-```bash
-pip install -r requirements.txt -r requirements-backend.txt
-```
-
----
 
 ## Installation
 
@@ -239,7 +159,7 @@ python -m venv .venv
 .venv\Scripts\activate          # Windows
 # source .venv/bin/activate     # macOS / Linux
 
-pip install -r requirements.txt -r requirements-backend.txt
+pip install -r requirements.txt 
 ```
 
 Create `.env` in the project root:
@@ -286,76 +206,6 @@ Open <http://localhost:8501>.
 | Analyze Image | Upload a scam screenshot, extract text via OCR, analyse it in the chosen language |
 | History | View all past analyses from SQLite |
 | Analytics | Aggregated metrics, category distribution, risk distribution |
-
----
-
-## Deployment
-
-The app is two services, because Streamlit Community Cloud runs **one** process per
-deployment while the heavy ML stack needs a long-lived process of its own.
-
-| Service | Platform | Runs |
-|---|---|---|
-| `scamshield-api` | Render | FastAPI, EasyOCR, FAISS, Gemini calls |
-| `scamshield-web` | Streamlit Community Cloud | Streamlit UI only |
-
-The browser talks to Streamlit, Streamlit talks to Render. This is why CORS is configured
-in `backend/main.py`.
-
-### 1. Deploy the backend to Render
-
-1. Push this repository to GitHub first.
-2. Go to <https://render.com> → **New** → **Blueprint**.
-3. Connect the repository. Render detects `render.yaml` and reads the config.
-4. Render prompts for the two `sync: false` values:
-   - `GEMINI_API_KEY` — your Gemini key
-   - `CORS_ORIGINS` — your Streamlit URL, e.g. `https://scamshield-web.streamlit.app`
-     (you can also leave `*` during setup and tighten it later)
-5. Click **Apply**.
-
-The build command installs the backend dependencies and rebuilds the FAISS index:
-
-```
-pip install -r requirements-backend.txt && python scripts/build_vector_db.py
-```
-
-When the deploy finishes you get a URL like `https://scamshield-api.onrender.com`.
-Verify it with `https://scamshield-api.onrender.com/health` — it should return
-`{"status":"running"}`.
-
-> **Cold starts.** Render's free tier sleeps after 15 minutes idle, and a wake-up loads
-> EasyOCR and the sentence-transformer model, which takes 2–5 minutes. The frontend shows
-> a clear "API unreachable" message during this window rather than hanging. Render's free
-> plan also caps memory at 512 MB, which is tight for PyTorch — if the service crashes on
-> boot, upgrade to the Starter plan ($7/month) or see the OCR note in Limitations.
-
-### 2. Deploy the frontend to Streamlit Community Cloud
-
-1. Go to <https://share.streamlit.io>.
-2. **New app** → connect your GitHub repository.
-3. Set the deployment settings:
-
-   | Field | Value |
-   |---|---|
-   | Main file path | `frontend/app.py` |
-   | Python version | 3.11 |
-   | Deploy | `scamshield-web` |
-
-4. Open **Advanced settings** → **Secrets** and add:
-
-   ```
-   API_URL = "https://scamshield-api.onrender.com"
-   ```
-
-5. Click **Deploy**.
-
-Your app appears at `https://scamshield-web.streamlit.app`.
-
-### 3. Tighten CORS
-
-Once the frontend URL is live, set `CORS_ORIGINS` on Render to that exact URL instead of
-`*`, so only your own frontend can call the API. Leaving it as `*` also means anyone who
-finds the API URL can call it and generate API cost against your key.
 
 ---
 

@@ -2,9 +2,9 @@
 
 **Multilingual Fraud Detection & Safety Guidance Platform**
 
-ScamShield AI analyses suspicious messages and screenshots, scores their risk, and returns
-safety guidance in **English, Hindi, and Telugu**. It is built for users who read the
-warning but do not necessarily understand it in English.
+## Overview
+
+ScamShield AI is a multilingual fraud detection platform that analyzes suspicious messages and screenshots using OCR, rule-based scam detection, FAISS-powered Retrieval-Augmented Generation (RAG), and Google Gemini to provide safety guidance in English, Hindi, and Telugu.
 
 A message that says *"Your Aadhaar will be blocked today, call 9876543210 and give OTP"*
 is obvious in English. In Telugu, without this tool, it is not. The safety guidance is
@@ -31,58 +31,6 @@ returned in the reader's own language and script.
 - [License](#license)
 
 ---
-
----
-
-## 📷 Screenshots
-
-### Homepage
-
-![Homepage](screenshots/homepage.png)
-
----
-
-### Text Analysis
-
-![Text Analysis](screenshots/text-analysis.png)
-
----
-
-### Image Analysis
-
-![Image Analysis](screenshots/image-anaylsis1.png)
-![Image Analysis](screenshots/image-analysis2.png)
-
-
----
-
-### Hindi Output
-
-![Hindi Output](screenshots/hindi-output.png)
-
----
-
-### Telugu Output
-
-![Telugu Output](screenshots/telugu-output.png)
-
----
-
-### History
-
-![History](screenshots/history.png)
-
----
-
-### Scam Analytics
-
-![Analytics](screenshots/scam-analytics.png)
-
----
-
-### Risk Analytics
-
-![Risk Analytics](screenshots/risk-recent-analytics.png)
 
 ---
 
@@ -209,6 +157,59 @@ but the safety guidance comes back in the reader's own language.
 4. FAISS retrieves relevant fraud knowledge.
 5. Gemini AI generates multilingual explanations.
 6. Risk score, scam category, and safety advice are displayed.
+
+
+## 📷 Screenshots
+
+### Homepage
+
+![Homepage](screenshots/homepage.png)
+
+---
+
+### Text Analysis
+
+![Text Analysis](screenshots/text-analysis.png)
+
+---
+
+### Image Analysis
+
+![Image Analysis](screenshots/image-anaylsis1.png)
+![Image Analysis](screenshots/image-analysis2.png)
+
+
+---
+
+### Hindi Output
+
+![Hindi Output](screenshots/hindi-output.png)
+
+---
+
+### Telugu Output
+
+![Telugu Output](screenshots/telugu-output.png)
+
+---
+
+### History
+
+![History](screenshots/history.png)
+
+---
+
+### Scam Analytics
+
+![Analytics](screenshots/scam-analytics.png)
+
+---
+
+### Risk Analytics
+
+![Risk Analytics](screenshots/risk-recent-analytics.png)
+
+---
 
 
 ## Installation

@@ -32,6 +32,60 @@ returned in the reader's own language and script.
 
 ---
 
+---
+
+## 📷 Screenshots
+
+### Homepage
+
+![Homepage](screenshots/homepage.png)
+
+---
+
+### Text Analysis
+
+![Text Analysis](screenshots/text-analysis.png)
+
+---
+
+### Image Analysis
+
+![Image Analysis](screenshots/image-analysis1.png)
+
+![Image Analysis](screenshots/image-analysis2.png)
+
+---
+
+### Hindi Output
+
+![Hindi Output](screenshots/hindi-output.png)
+
+---
+
+### Telugu Output
+
+![Telugu Output](screenshots/telugu-output.png)
+
+---
+
+### History
+
+![History](screenshots/history.png)
+
+---
+
+### Scam Analytics
+
+![Analytics](screenshots/scam-analytics.png)
+
+---
+
+### Risk Analytics
+
+![Risk Analytics](screenshots/risk-recent-analytics.png)
+
+---
+
 ## Why This Exists
 
 Fraud messages in India overwhelmingly target non-English speakers. The threat itself
@@ -145,6 +199,16 @@ but the safety guidance comes back in the reader's own language.
 ├── README.md
 └── .env                            # Local only — never commit
 ```
+
+
+## 🎯 How It Works
+
+1. User enters a suspicious message or uploads a screenshot.
+2. EasyOCR extracts text from images.
+3. Scam Detection Engine identifies scam indicators.
+4. FAISS retrieves relevant fraud knowledge.
+5. Gemini AI generates multilingual explanations.
+6. Risk score, scam category, and safety advice are displayed.
 
 
 ## Installation
@@ -268,6 +332,19 @@ Returns `{ "extracted_text": "...", "analysis": { ... } }`.
 
 ---
 
+
+## 💡 Key Learning Outcomes
+
+- FastAPI Backend Development
+- Streamlit Application Development
+- OCR Integration
+- Retrieval-Augmented Generation (RAG)
+- Vector Search using FAISS
+- Google Gemini API Integration
+- Multilingual AI Applications
+- SQLite Database Management
+
+---  
 ## Troubleshooting
 
 **Streamlit shows "API unreachable".**

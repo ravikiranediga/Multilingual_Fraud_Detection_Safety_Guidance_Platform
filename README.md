@@ -1,6 +1,6 @@
 # 🛡️ ScamShield AI
 
-**Multilingual Fraud Detection & Safety Guidance Platform**
+# Multilingual Fraud Detection & Safety Guidance Platform
 
 ## Overview
 

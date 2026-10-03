@@ -50,7 +50,7 @@ returned in the reader's own language and script.
 
 ### Image Analysis
 
-
+![Image Analysis](screenshots/image-anaylsis1.png)
 ![Image Analysis](screenshots/image-analysis2.png)
 
 
